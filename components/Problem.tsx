@@ -27,7 +27,7 @@ const Problem: React.FC = () => {
   ];
 
   return (
-    <section id="problema" className="py-20 bg-slate-900 border-y border-slate-800">
+    <section id="problema" className="py-20 bg-slate-900 border-y border-slate-800 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <Reveal width="100%">
@@ -45,7 +45,13 @@ const Problem: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {problems.map((item, index) => (
-            <Reveal key={index} delay={index * 150} className="h-full">
+            <Reveal 
+              key={index} 
+              delay={index * 100} 
+              className="h-full"
+              // First two slide from left, last two slide from right for a "closing in" effect
+              direction={index < 2 ? 'left' : 'right'} 
+            >
               <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-slate-600 transition-all hover:bg-slate-800 group h-full">
                 <div className="mb-6 p-3 bg-slate-900 rounded-lg w-fit group-hover:scale-110 transition-transform duration-300">
                   {item.icon}

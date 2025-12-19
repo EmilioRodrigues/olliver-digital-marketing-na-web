@@ -5,13 +5,15 @@ interface RevealProps {
   width?: 'fit-content' | '100%';
   delay?: number; // Delay in ms
   className?: string;
+  direction?: 'bottom' | 'left' | 'right';
 }
 
 const Reveal: React.FC<RevealProps> = ({ 
   children, 
   width = 'fit-content', 
   delay = 0,
-  className = "" 
+  className = "",
+  direction = 'bottom'
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -25,8 +27,8 @@ const Reveal: React.FC<RevealProps> = ({
         }
       },
       {
-        threshold: 0.1, // Trigger slightly earlier (10% visibility) for a snappier feel
-        rootMargin: "0px 0px -20px 0px" 
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px" 
       }
     );
 
@@ -39,6 +41,16 @@ const Reveal: React.FC<RevealProps> = ({
     };
   }, []);
 
+  const getTransformClass = () => {
+    if (isVisible) return 'translate-x-0 translate-y-0 opacity-100';
+    
+    switch (direction) {
+      case 'left': return '-translate-x-20 opacity-0';
+      case 'right': return 'translate-x-20 opacity-0';
+      case 'bottom': default: return 'translate-y-8 opacity-0';
+    }
+  };
+
   return (
     <div
       ref={ref}
@@ -46,11 +58,7 @@ const Reveal: React.FC<RevealProps> = ({
         width,
         transitionDelay: `${delay}ms`
       }}
-      className={`transition-all duration-700 ease-out transform ${
-        isVisible 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-4' // Reduced movement (was 12) and removed blur for cleaner UX
-      } ${className}`}
+      className={`transition-all duration-1000 ease-out transform ${getTransformClass()} ${className}`}
     >
       {children}
     </div>

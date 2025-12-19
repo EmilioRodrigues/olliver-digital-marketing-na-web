@@ -4,22 +4,22 @@ import { Linkedin, Instagram, Mail } from 'lucide-react';
 const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-950 border-t border-slate-900 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           
           {/* Brand */}
-          <div className="col-span-1">
+          <div className="col-span-1 flex flex-col items-center">
             <span className="text-2xl font-bold text-white tracking-tighter">
               Olliver<span className="text-brand-600">Digital</span>
             </span>
-            <p className="mt-4 text-slate-400 text-sm leading-relaxed">
+            <p className="mt-4 text-slate-400 text-sm leading-relaxed max-w-xs mx-auto">
               Consultoria estratégica de SEO e Posicionamento Digital. 
               Atendimento 100% online para empresas que buscam autoridade no Brasil e no exterior.
             </p>
           </div>
 
           {/* Links */}
-          <div className="col-span-1">
+          <div className="col-span-1 flex flex-col items-center">
             <h4 className="text-white font-semibold mb-4">Navegação</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li><a href="#problema" className="hover:text-brand-400 transition-colors">O Problema</a></li>
@@ -30,9 +30,9 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contact */}
-          <div className="col-span-1">
+          <div className="col-span-1 flex flex-col items-center">
             <h4 className="text-white font-semibold mb-4">Contato</h4>
-            <div className="flex space-x-4 mb-4">
+            <div className="flex space-x-4 mb-4 justify-center">
               <a href="https://www.instagram.com/olliverdigital_marketingnaweb" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
               <a href="#" className="text-slate-400 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
               <a href="mailto:ollivergraficadigital@gmail.com" className="text-slate-400 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>

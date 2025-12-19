@@ -384,74 +384,77 @@ export default Navbar;`,
 
   'components/Hero.tsx': `import React from 'react';
 import Button from './Button';
-import Reveal from './Reveal';
-import { ChevronDown, Globe, ShieldCheck, Zap } from 'lucide-react';
+import { ChevronDown, Globe, ShieldCheck } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const whatsappLink = "https://wa.me/5585986187858?text=Ol%C3%A1%2C+vim+pelo+site+da+Olliver+Digital+e+gostaria+de+um+diagn%C3%B3stico+de+visibilidade.";
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-3xl opacity-30 animate-blob"></div>
-        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex items-center justify-center min-h-[90vh]">
+      {/* Background Image with Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full -z-10 bg-slate-900">
+        <img 
+          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=2000" 
+          alt="City Lights - Local SEO" 
+          className="w-full h-full object-cover opacity-60"
+        />
+        {/* Modern Dark Overlay - Reduced opacity to show image */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/70 to-slate-900"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center z-10">
         
-        <Reveal width="100%" className="flex justify-center">
+        <div className="flex justify-center w-full">
           <div className="flex flex-col items-center gap-4 mb-8">
-            {/* Status Badge - Scarcity Trigger */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/30 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider animate-pulse">
+            {/* Status Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/40 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
               Agenda Aberta: Março/2025
             </div>
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-3">
-              <div className="inline-flex items-center space-x-2 bg-slate-800/50 border border-slate-700 rounded-full px-4 py-1.5 backdrop-blur-sm">
+              <div className="inline-flex items-center space-x-2 bg-slate-800/60 border border-slate-700 rounded-full px-4 py-1.5 backdrop-blur-sm">
                 <ShieldCheck className="w-4 h-4 text-brand-400" />
                 <span className="text-sm font-medium text-brand-100 uppercase tracking-wide">Especialistas em GBP</span>
               </div>
-              <div className="inline-flex items-center space-x-2 bg-blue-900/30 border border-blue-800 rounded-full px-4 py-1.5 backdrop-blur-sm">
+              <div className="inline-flex items-center space-x-2 bg-blue-900/40 border border-blue-800 rounded-full px-4 py-1.5 backdrop-blur-sm">
                 <Globe className="w-4 h-4 text-blue-400" />
                 <span className="text-sm font-medium text-blue-100 uppercase tracking-wide">Atendimento Online Brasil e Exterior</span>
               </div>
             </div>
           </div>
-        </Reveal>
+        </div>
         
-        <Reveal width="100%" delay={200}>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
+        <div className="w-full">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6 drop-shadow-2xl">
             SEO Local através do <br className="hidden lg:block" />
             <span className="gradient-text pb-2">Google Perfil de Empresa</span>
           </h1>
-        </Reveal>
+        </div>
         
-        <Reveal width="100%" delay={400}>
-          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-slate-400 leading-relaxed">
+        <div className="w-full">
+          <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-slate-200 leading-relaxed font-light drop-shadow-md">
             Sua empresa no topo do <strong>Google Maps</strong> e da Pesquisa Local. 
             Aumente seu faturamento atraindo clientes qualificados na sua região através de uma estratégia avançada de Otimização de Perfil (GBP) e SEO de Autoridade.
           </p>
-        </Reveal>
+        </div>
 
-        <Reveal width="100%" delay={600}>
+        <div className="w-full">
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
             <Button onClick={() => window.open(whatsappLink, '_blank')} icon className="px-8 py-4 text-lg shadow-brand-500/20 shadow-2xl hover:shadow-brand-500/40 transform hover:-translate-y-1">
               Quero dominar o Google Maps
             </Button>
-            <Button variant="outline" onClick={() => document.getElementById('sistema')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 text-lg">
+            <Button variant="outline" onClick={() => document.getElementById('sistema')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 text-lg bg-slate-900/50 backdrop-blur-sm hover:bg-slate-800/80 border-slate-500/50">
               Como funciona a Consultoria
             </Button>
           </div>
-        </Reveal>
+        </div>
 
-        <Reveal width="100%" delay={1000}>
-          <div className="mt-16 animate-bounce flex justify-center opacity-50 cursor-pointer" onClick={() => document.getElementById('problema')?.scrollIntoView({behavior: 'smooth'})}>
-            <ChevronDown className="w-8 h-8 text-slate-500 hover:text-brand-400 transition-colors" />
+        <div className="w-full">
+          <div className="mt-16 flex justify-center opacity-70 cursor-pointer" onClick={() => document.getElementById('problema')?.scrollIntoView({behavior: 'smooth'})}>
+            <ChevronDown className="w-8 h-8 text-slate-400 hover:text-brand-400 transition-colors" />
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -488,7 +491,7 @@ const Problem: React.FC = () => {
   ];
 
   return (
-    <section id="problema" className="py-20 bg-slate-900 border-y border-slate-800">
+    <section id="problema" className="py-20 bg-slate-900 border-y border-slate-800 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <Reveal width="100%">
@@ -506,7 +509,13 @@ const Problem: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {problems.map((item, index) => (
-            <Reveal key={index} delay={index * 150} className="h-full">
+            <Reveal 
+              key={index} 
+              delay={index * 100} 
+              className="h-full"
+              // First two slide from left, last two slide from right for a "closing in" effect
+              direction={index < 2 ? 'left' : 'right'} 
+            >
               <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-slate-600 transition-all hover:bg-slate-800 group h-full">
                 <div className="mb-6 p-3 bg-slate-900 rounded-lg w-fit group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
@@ -870,22 +879,22 @@ import { Linkedin, Instagram, Mail } from 'lucide-react';
 const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-950 border-t border-slate-900 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           
           {/* Brand */}
-          <div className="col-span-1">
+          <div className="col-span-1 flex flex-col items-center">
             <span className="text-2xl font-bold text-white tracking-tighter">
               Olliver<span className="text-brand-600">Digital</span>
             </span>
-            <p className="mt-4 text-slate-400 text-sm leading-relaxed">
+            <p className="mt-4 text-slate-400 text-sm leading-relaxed max-w-xs mx-auto">
               Consultoria estratégica de SEO e Posicionamento Digital. 
               Atendimento 100% online para empresas que buscam autoridade no Brasil e no exterior.
             </p>
           </div>
 
           {/* Links */}
-          <div className="col-span-1">
+          <div className="col-span-1 flex flex-col items-center">
             <h4 className="text-white font-semibold mb-4">Navegação</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li><a href="#problema" className="hover:text-brand-400 transition-colors">O Problema</a></li>
@@ -896,9 +905,9 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Contact */}
-          <div className="col-span-1">
+          <div className="col-span-1 flex flex-col items-center">
             <h4 className="text-white font-semibold mb-4">Contato</h4>
-            <div className="flex space-x-4 mb-4">
+            <div className="flex space-x-4 mb-4 justify-center">
               <a href="https://www.instagram.com/olliverdigital_marketingnaweb" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
               <a href="#" className="text-slate-400 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
               <a href="mailto:ollivergraficadigital@gmail.com" className="text-slate-400 hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
@@ -945,13 +954,15 @@ interface RevealProps {
   width?: 'fit-content' | '100%';
   delay?: number; // Delay in ms
   className?: string;
+  direction?: 'bottom' | 'left' | 'right';
 }
 
 const Reveal: React.FC<RevealProps> = ({ 
   children, 
   width = 'fit-content', 
   delay = 0,
-  className = "" 
+  className = "",
+  direction = 'bottom'
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -965,8 +976,8 @@ const Reveal: React.FC<RevealProps> = ({
         }
       },
       {
-        threshold: 0.1, // Trigger slightly earlier (10% visibility) for a snappier feel
-        rootMargin: "0px 0px -20px 0px" 
+        threshold: 0.15, // Trigger slightly earlier (15% visibility) for a snappier feel
+        rootMargin: "0px 0px -50px 0px" 
       }
     );
 
@@ -979,6 +990,16 @@ const Reveal: React.FC<RevealProps> = ({
     };
   }, []);
 
+  const getTransformClass = () => {
+    if (isVisible) return 'translate-x-0 translate-y-0 opacity-100';
+    
+    switch (direction) {
+      case 'left': return '-translate-x-20 opacity-0';
+      case 'right': return 'translate-x-20 opacity-0';
+      case 'bottom': default: return 'translate-y-8 opacity-0';
+    }
+  };
+
   return (
     <div
       ref={ref}
@@ -986,11 +1007,7 @@ const Reveal: React.FC<RevealProps> = ({
         width,
         transitionDelay: \`\${delay}ms\`
       }}
-      className={\`transition-all duration-700 ease-out transform \${
-        isVisible 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-4' // Reduced movement (was 12) and removed blur for cleaner UX
-      } \${className}\`}
+      className={\`transition-all duration-1000 ease-out transform \${getTransformClass()} \${className}\`}
     >
       {children}
     </div>
