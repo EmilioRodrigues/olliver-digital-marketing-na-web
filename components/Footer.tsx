@@ -6,14 +6,14 @@ const Footer: React.FC = () => {
     <footer className="bg-slate-950 border-t border-slate-900 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          
+
           {/* Brand */}
           <div className="col-span-1 flex flex-col items-center">
             <span className="text-2xl font-bold text-white tracking-tighter">
               Olliver<span className="text-brand-600">Digital</span>
             </span>
             <p className="mt-4 text-slate-400 text-sm leading-relaxed max-w-xs mx-auto">
-              Consultoria estratégica de SEO e Posicionamento Digital. 
+              Consultoria estratégica de SEO e Posicionamento Digital.
               Atendimento 100% online para empresas que buscam autoridade no Brasil e no exterior.
             </p>
           </div>

@@ -7,19 +7,26 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex items-center justify-center min-h-[90vh]">
-      {/* Background Image with Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10 bg-slate-900">
-        <img 
-          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=2000" 
-          alt="City Lights - Local SEO" 
-          className="w-full h-full object-cover opacity-20"
+      {/* Background image with tint + gradient shade + vignette for impact */}
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=2000')" }}
+      >
+        {/* Semi-opaque color tint to improve text contrast */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        {/* Gradient shade + radial vignette for more depth */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(2,6,23,0.15) 0%, rgba(2,6,23,0.6) 100%), radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.7) 100%)',
+          }}
         />
-        {/* Modern Dark Overlay - Reduced opacity to show image */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/70 to-slate-900"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center z-10">
-        
+
         <div className="flex justify-center w-full">
           <div className="flex flex-col items-center gap-4 mb-8">
             {/* Status Badge */}
@@ -40,17 +47,17 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="w-full">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6 drop-shadow-2xl">
             SEO Local através do <br className="hidden lg:block" />
             <span className="gradient-text pb-2">Google Perfil de Empresa</span>
           </h1>
         </div>
-        
+
         <div className="w-full">
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-slate-200 leading-relaxed font-light drop-shadow-md">
-            Sua empresa no topo do <strong>Google Maps</strong> e da Pesquisa Local. 
+            Sua empresa no topo do <strong>Google Maps</strong> e da Pesquisa Local.
             Aumente seu faturamento atraindo clientes qualificados na sua região através de uma estratégia avançada de Otimização de Perfil (GBP) e SEO de Autoridade.
           </p>
         </div>
