@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos Globais e Reset */
+body {
+  @apply bg-dark-900 text-slate-50 font-sans antialiased;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar Personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-dark-900;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-800 border-2 border-dark-900 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-brand-400;
+}
+::selection {
+  @apply bg-brand-400 text-dark-900;
+}
+
+/* Animações Personalizadas */
+.gradient-text {
+  background: linear-gradient(to right, #2dd4bf, #3b82f6, #2dd4bf);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 3s linear infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
